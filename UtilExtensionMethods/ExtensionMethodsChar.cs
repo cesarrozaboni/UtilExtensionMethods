@@ -13,7 +13,13 @@
         /// <returns>true if contains</returns>
         public static bool In(this char? caracter, params char[] value)
         {
-            return value.Any(i => caracter.Equals(i));
+            foreach (var i in value)
+            {
+                if (caracter.Equals(i))
+                    return true;
+            }
+
+            return false;
         }
 
         /// <summary>
@@ -24,8 +30,13 @@
         /// <returns>true if not contains</returns>
         public static bool NotIn(this char? caracter, params char[] value)
         {
-            return !value.Any(i => caracter.Equals(i));
-            
+            foreach (var i in value)
+            {
+                if (caracter.Equals(i))
+                    return false;
+            }
+
+            return true;
         }
     }
 }

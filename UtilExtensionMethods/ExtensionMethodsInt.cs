@@ -13,7 +13,13 @@
         /// <returns>true if contains</returns>
         public static bool In(this int number, params int[] value)
         {
-            return value.Any(x => number.Equals(x));
+            foreach (var i in value)
+            {
+                if (number.Equals(i))
+                    return true;
+            }
+
+            return false;
         }
 
         /// <summary>
@@ -24,7 +30,13 @@
         /// <returns>true if not contains</returns>
         public static bool NotIn(this int number, params object[] value)
         {
-            return !value.Any(x => number.Equals(x));
+            foreach (var i in value)
+            {
+                if (number.Equals(i))
+                    return false;
+            }
+
+            return true;
         }
     }
 }

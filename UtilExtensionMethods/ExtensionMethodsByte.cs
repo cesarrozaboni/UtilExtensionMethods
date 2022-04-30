@@ -1,4 +1,6 @@
-﻿namespace UtilExtensionMethods
+﻿using System;
+
+namespace UtilExtensionMethods
 {
     /// <summary>
     /// Extension to type byte

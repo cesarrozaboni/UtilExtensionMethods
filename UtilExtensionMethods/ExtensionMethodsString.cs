@@ -1,4 +1,6 @@
-﻿namespace UtilExtensionMethods
+﻿using System.Linq;
+
+namespace UtilExtensionMethods
 {
     /// <summary>
     /// Extension to string
@@ -43,7 +45,13 @@
         /// <returns>true if contains</returns>
         public static bool In(this string str, params string[] value)
         {
-            return value.Any(x => x.Equals(str));
+            foreach (var i in value)
+            {
+                if (str.Equals(i))
+                    return true;
+            }
+
+            return false;
         }
 
         /// <summary>
@@ -54,7 +62,13 @@
         /// <returns>true if not contains</returns>
         public static bool NotIn(this string str, params object[] value)
         {
-            return !value.Any(x => x.Equals(str));
+            foreach (var i in value)
+            {
+                if (str.Equals(i))
+                    return false;
+            }
+
+            return true;
         }
 
         /// <summary>
